@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Georgia', serif;
+    background: radial-gradient(circle at top, #2b0000, #000000 70%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+/* Card */
+.card {
+    background: rgba(0,0,0,0.6);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 60px rgba(255, 0, 80, 0.6);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 2s ease-in-out;
+}
+
+h1 {
+    font-size: 2.8rem;
+    color: #ff4d6d;
+    text-shadow: 0 0 20px #ff0055;
+}
+
+p {
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 30px;
+}
+
+button {
+    padding: 12px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.yes {
+    background: #ff0055;
+    color: white;
+}
+
+.no {
+    background: grey;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Heart Animation */
+.heart {
+    position: absolute;
+    color: #ff0055;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Happy Valentine's Day ❤️</h1>
+    <p id="message">You are my forever and always 💕</p>
+
+    <div class="buttons">
+        <button class="yes" onclick="yesClicked()">Yes 💖</button>
+        <button class="no" onclick="noClicked()">No 😢</button>
+    </div>
+</div>
+
+<script>
+function yesClicked() {
+    document.getElementById("message").innerHTML = 
+    "Yayyy 🥰 I love you more than anything in this world 💍❤️";
+}
+
+function noClicked() {
+    document.getElementById("message").innerHTML = 
+    "Oh no 😭 But I will still love you forever 💔❤️";
+}
+
+// Floating Hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}, 500);
+</script>
+
+</body>
+</html>
